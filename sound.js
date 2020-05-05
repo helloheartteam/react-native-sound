@@ -59,6 +59,9 @@ function Sound(filename, basePath, onError, options) {
   this._pan = 0;
   this._numberOfLoops = 0;
   this._speed = 1;
+  if(options.category){
+    RNSound.setCategory(options.category, false);
+  }
   RNSound.prepare(this._filename, this._key, options || {}, (error, props) => {
     if (props) {
       if (typeof props.duration === 'number') {
